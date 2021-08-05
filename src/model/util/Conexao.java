@@ -13,7 +13,8 @@ import java.sql.SQLException;
 	        private static final String PASSWORD = "root";
 
 	        //Dados de caminho, porta e nome da base de dados que irá ser feita a conexão
-	        private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/banco";
+	        private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/banco?useTimezone=true&serverTimezone=UTC";
+	        
 	       
 	     // Cria uma conexão com o banco de dados MySQL utilizando o nome de usuário e senha fornecidos
 	     
@@ -24,7 +25,9 @@ import java.sql.SQLException;
 	        	
 	        	try {
 	        		
-	        		Class.forName("com.mysql.jdbc.Driver");
+	        		
+	        		
+	        		Class.forName("com.mysql.cj.jdbc.Driver");
 	        		
 	        		conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
 	        		
